@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaInstagram } from "react-icons/fa"; // 📌 ใช้ React Icons
+import { FaInstagram } from "react-icons/fa6";
 import { MdOutlineFileDownload } from "react-icons/md";
 import { GrPowerReset } from "react-icons/gr";
 import { BsCopy } from "react-icons/bs";
@@ -696,17 +696,17 @@ const PhotoPreview = ({ capturedImages }) => {
         <button onClick={downloadPhotoStrip} className="ig-sharess">
             <MdOutlineFileDownload size={20} style={{ marginRight: '0px' }} />
         </button>
-        {/* 📌 ใช้ React Icons แทนรูปภาพสำหรับ IG Story */}
+        
         <button onClick={shareToInstagramStory} className="ig-sharess">
             <FaInstagram size={20} style={{ marginRight: '0px' }} /> For IG Story
         </button>
         </div>
 
-         {/* 📌 ใช้ React Icons แทนรูปภาพสำหรับ IG Story */}
+       
          <button onClick={() => navigate("/photobooth")} className="play-again-btn">
-            <GrPowerReset size={20} style={{ marginRight: '5px' }} /> PLAY AGIN
+            <GrPowerReset size={20} style={{ marginRight: '5px' }} /> PLAY AGAIN
         </button>
-          {/* 📌 เปลี่ยนปุ่ม Take New Photos เป็น Play Again */}
+        
         </div>
       </div>
    
