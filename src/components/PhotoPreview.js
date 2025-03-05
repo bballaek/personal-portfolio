@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaInstagram } from "react-icons/fa6";
+import { Instagram } from "lucide-react";
 import { MdOutlineFileDownload } from "react-icons/md";
 import { GrPowerReset } from "react-icons/gr";
 import { BsCopy } from "react-icons/bs";
@@ -698,8 +698,9 @@ const PhotoPreview = ({ capturedImages }) => {
         </button>
         
         <button onClick={shareToInstagramStory} className="ig-sharess">
-            <FaInstagram size={20} style={{ marginRight: '0px' }} /> For IG Story
+            <Instagram size={20} style={{ marginRight: '0px' }} /> For IG Story
         </button>
+
         </div>
 
        
