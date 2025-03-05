@@ -16,6 +16,8 @@
     - custom css link
   -->
   <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 
   <!--
     - google font link
@@ -23,6 +25,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&family=Phudu:wght@300..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -30,6 +33,10 @@
   <!--
     - #MAIN
   -->
+  <button id="back-to-top">
+    &#8679; <!-- Unicode ลูกศรขึ้น ↑ -->
+  </button>
+  
 
   <main>
 
@@ -42,14 +49,22 @@
       <div class="sidebar-info">
 
         <figure class="avatar-box">
-          <img src="./assets/images/my-avatar.png" alt="Richard hanrick" width="80">
+          <img src="./assets/images/my-avatar2.png" alt="Aekkarat Wongchalee" width="80">
         </figure>
 
         <div class="info-content">
-          <h1 class="name" title="Richard hanrick">Richard hanrick</h1>
+          <h1 class="name" title="Aekkarat Wongchalee">Aekkarat Wongchalee</h1>
 
-          <p class="title">Web developer</p>
+          <p class="title">Web developer/ Graphic Designer</p>
+          <!-- <button class="resume-btn" id="resume-btn">View Resume</button> -->
+
+          
+          
         </div>
+
+        
+        
+
 
         <button class="info_more-btn" data-sidebar-btn>
           <span>Show Contacts</span>
@@ -74,7 +89,7 @@
             <div class="contact-info">
               <p class="contact-title">Email</p>
 
-              <a href="mailto:richard@example.com" class="contact-link">richard@example.com</a>
+              <a href="bigbollvol@gmail.com" class="contact-link">bigbollvol@gmail.com</a>
             </div>
 
           </li>
@@ -88,7 +103,7 @@
             <div class="contact-info">
               <p class="contact-title">Phone</p>
 
-              <a href="tel:+12133522795" class="contact-link">+1 (213) 352-2795</a>
+              <a href="tel:+66933963175" class="contact-link">+66 93-396-3175</a>
             </div>
 
           </li>
@@ -102,7 +117,7 @@
             <div class="contact-info">
               <p class="contact-title">Birthday</p>
 
-              <time datetime="1982-06-23">June 23, 1982</time>
+              <time datetime="1982-06-23">17 August 2002</time>
             </div>
 
           </li>
@@ -116,7 +131,7 @@
             <div class="contact-info">
               <p class="contact-title">Location</p>
 
-              <address>Sacramento, California, USA</address>
+              <address>Ubon Ratchathani 34360, Thailand</address>
             </div>
 
           </li>
@@ -128,22 +143,37 @@
         <ul class="social-list">
 
           <li class="social-item">
-            <a href="#" class="social-link">
+            <a href="https://www.facebook.com/tar.taralzhemerz/?locale=th_TH" class="social-link">
               <ion-icon name="logo-facebook"></ion-icon>
             </a>
           </li>
 
+  
+
           <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
+            <a href="https://www.instagram.com/bballaek/" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
             </a>
           </li>
 
           <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
+            <a href="https://www.linkedin.com/in/bballaekkarat/" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
             </a>
           </li>
+
+          <li class="social-item">
+            <a href="https://github.com/bballaek" class="social-link">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="#" class="social-link" id="resume-btn">
+                <ion-icon name="eye-outline"></ion-icon>
+            </a>
+          </li>
+        
 
         </ul>
 
@@ -181,9 +211,7 @@
             <button class="navbar-link" data-nav-link>Portfolio</button>
           </li>
 
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Blog</button>
-          </li>
+          
 
           <li class="navbar-item">
             <button class="navbar-link" data-nav-link>Contact</button>
@@ -204,22 +232,25 @@
       <article class="about  active" data-page="about">
 
         <header>
-          <h2 class="h2 article-title">About me</h2>
-        </header>
+          <h2 class="h2 article-title">
+              <span class="text-container">
+                  <span class="text active">About me</span>
+                  <span class="text">เกี่ยวกับฉัน</span>
+              </span>
+          </h2>
+      </header>
+      
 
         <section class="about-text">
           <p>
-            I'm Creative Director and UI/UX Designer from Sydney, Australia, working in web development and print media.
-            I enjoy
-            turning complex problems into simple, beautiful and intuitive designs.
-          </p>
+            A recent graduate in Educational Technology from Chulalongkorn University, passionate about developing and designing digital learning media and 
+            interactive educational tools to enhance learning efficiency. Experienced in teaching and curriculum development in diverse and dynamic environments,
+            with a proven ability to create engaging instructional materials. Recipient of an Outstanding Educational Media Design Award.
 
           <p>
-            My job is to build your website so that it is functional and user-friendly but at the same time attractive.
-            Moreover, I
-            add personal touch to your product and make sure that is eye-catching and easy to use. My aim is to bring
-            across your
-            message and identity in the most creative way. I created web design for many famous brand companies.
+            Interested in web development, programming, AI, and Machine Learning to enhance education.
+            Seeking opportunities in computer science and educational technology to develop skills and
+            drive innovation in digital learning.
           </p>
         </section>
 
@@ -308,6 +339,7 @@
           - testimonials
         -->
 
+        
         <section class="testimonials">
 
           <h3 class="h3 testimonials-title">Testimonials</h3>
@@ -405,6 +437,8 @@
           </ul>
 
         </section>
+
+        
 
 
         <!--
@@ -532,41 +566,31 @@
 
             <li class="timeline-item">
 
-              <h4 class="h4 timeline-item-title">University school of the arts</h4>
+              <h4 class="h4 timeline-item-title">Chulalongkorn University</h4>
 
-              <span>2007 — 2008</span>
+              <span>2021 — 2024</span>
 
               <p class="timeline-text">
-                Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et
-                quas molestias
-                exceptur.
+                <i>Bachelor of Education</i><br> 
+                - Relevant coursework: Educational Technology and Communications, Computer Science<br> 
+                - Cumulative GPAX: 3.36 (2nd Class Honours)
+
               </p>
 
             </li>
 
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">New york academy of art</h4>
-
-              <span>2006 — 2007</span>
-
-              <p class="timeline-text">
-                Ratione voluptatem sequi nesciunt, facere quisquams facere menda ossimus, omnis voluptas assumenda est
-                omnis..
-              </p>
-
-            </li>
+    
 
             <li class="timeline-item">
 
-              <h4 class="h4 timeline-item-title">High school of art and design</h4>
+              <h4 class="h4 timeline-item-title">Narinukun School</h4>
 
-              <span>2002 — 2004</span>
+              <span>2018 — 2021</span>
 
               <p class="timeline-text">
-                Duis aute irure dolor in reprehenderit in voluptate, quila voluptas mag odit aut fugit, sed consequuntur
-                magni dolores
-                eos.
+                <i>High School Certificate</i><br> 
+                - Science-Mathematics-Computer (ECP Programme)<br> 
+                - Cumulative GPAX: 3.33
               </p>
 
             </li>
@@ -589,42 +613,73 @@
 
             <li class="timeline-item">
 
-              <h4 class="h4 timeline-item-title">Creative director</h4>
+              <h4 class="h4 timeline-item-title">Teaching Observation (Session 1-3) & Teaching Practi</h4>
+              <h4 class="h4 timeline-title">Chulalongkorn University Demonstration Secondary & Elementary School</h4>
 
-              <span>2015 — Present</span>
+              <span>2022 — 2023</span>
 
               <p class="timeline-text">
-                Nemo enim ipsam voluptatem blanditiis praesentium voluptum delenit atque corrupti, quos dolores et qvuas
-                molestias
-                exceptur.
+                <ol class="custom-list">
+                  <li>Observed and analyzed 25+ teaching sessions, identifying strategies to improve student engagement.</li>
+                  <li>Designed promotional materials, educational slides, and motion graphics.</li>
+                  <li>Assisted in lesson planning and implemented interactive digital tools.</li>
+                </ol>
               </p>
 
             </li>
 
             <li class="timeline-item">
 
-              <h4 class="h4 timeline-item-title">Art director</h4>
-
-              <span>2013 — 2015</span>
+              <h4 class="h4 timeline-item-title">Teaching Internship (4 months)</h4>
+              <h4 class="h4 timeline-title">Samsenwittayalai School</h4>
+              <span>2024 — 2024</span>
 
               <p class="timeline-text">
-                Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et
-                quas molestias
-                exceptur.
+                <ol class="custom-list">
+                  <p><i>Responsibilities and Achievements:</i></p>
+                  <li>Designed and conducted weekly lesson plans focused on computer science and technology.</li>
+                  <li>Developed interactive digital learning materials to improve student understanding.</li>
+                  <li>Organized team-based activities to develop students' collaboration and problem-solving skills.</li>
+                  <li>•	Created promotional materials and digital content for school events and campaigns.</li>
+                  <p><i>Responsibilities and Achievements:</i></p>
+                  <li>Computer Programming and Applications (C++)</li>
+                  <li>Computational Thinking</li>
+                  <li>Design and Technology</li>
+                  <li>Design and Technology(English-based curriculum for bilingual program)</li>
+                </ol>
               </p>
 
             </li>
 
             <li class="timeline-item">
 
-              <h4 class="h4 timeline-item-title">Web designer</h4>
-
-              <span>2010 — 2013</span>
+              <h4 class="h4 timeline-item-title">Educational Research Project</h4>
+              <h4 class="h4 timeline-title">Faculty of Education Chulalongkorn University</h4>
+              <span>2024 — 2025</span>
 
               <p class="timeline-text">
-                Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et
-                quas molestias
-                exceptur.
+                <ol class="custom-list">
+                  <li>Collaborated with researchers to collect qualitative data for research purposes.</li>
+                  <li>Created research presentation materials.</li>
+                  <li>Verified and reviewed research data..</li>
+                </ol>
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Graphic Design | Web Developer Education | Video Editor</h4>
+              <h4 class="h4 timeline-title">Freelance</h4>
+              <span>2024 - Present</span>
+
+              <p class="timeline-text">
+                <ol class="custom-list">
+                  <li>Developed an AR-based educational tool for digital citizenship training.</li>
+                  <li>Designed promotional materials, educational slides, and motion graphics.</li>
+                  <li>Edited videos for presentations and e-learning materials.</li>
+                </ol>
+                
               </p>
 
             </li>
@@ -642,7 +697,7 @@
             <li class="skills-item">
 
               <div class="title-wrapper">
-                <h5 class="h5">Web design</h5>
+                <h5 class="h5">Adobe Photoshop</h5>
                 <data value="80">80%</data>
               </div>
 
@@ -655,12 +710,12 @@
             <li class="skills-item">
 
               <div class="title-wrapper">
-                <h5 class="h5">Graphic design</h5>
-                <data value="70">70%</data>
+                <h5 class="h5">Adobe Illustrator</h5>
+                <data value="90">80%</data>
               </div>
 
               <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 70%;"></div>
+                <div class="skill-progress-fill" style="width: 80%;"></div>
               </div>
 
             </li>
@@ -668,15 +723,73 @@
             <li class="skills-item">
 
               <div class="title-wrapper">
-                <h5 class="h5">Branding</h5>
-                <data value="90">90%</data>
+                <h5 class="h5">Adobe Premiere</h5>
+                <data value="90">50%</data>
               </div>
 
               <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 90%;"></div>
+                <div class="skill-progress-fill" style="width: 50%;"></div>
               </div>
 
             </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Final Cut</h5>
+                <data value="90">50%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 50%;"></div>
+              </div>
+
+            </li>
+
+                  <li class="skills-item">
+
+                    <div class="title-wrapper">
+
+                      <h5 class="h5">Microsoft Office</h5>
+                      <data value="90">80%</data>
+                    </div>
+
+                  <div class="skill-progress-bg">
+                    <div class="skill-progress-fill" style="width: 80%;"></div>
+                  </div>
+
+                  </li>
+
+                  <li class="skills-item">
+                    <div class="title-wrapper">
+                      <h5 class="h5">Google Workspaces</h5>
+                      <data value="80">80%</data>
+                    </div>
+                    <div class="skill-progress-bg">
+                      <div class="skill-progress-fill" style="width: 80%;"></div>
+                    </div>
+                  </li>
+                  
+                  <li class="skills-item">
+                    <div class="title-wrapper">
+                      <h5 class="h5">HTML & CSS</h5>
+                      <data value="50">50%</data>
+                    </div>
+                    <div class="skill-progress-bg">
+                      <div class="skill-progress-fill" style="width: 50%;"></div>
+                    </div>
+                  </li>
+                  
+                  <li class="skills-item">
+                    <div class="title-wrapper">
+                      <h5 class="h5">Python & C++</h5>
+                      <data value="80">80%</data>
+                    </div>
+                    <div class="skill-progress-bg">
+                      <div class="skill-progress-fill" style="width: 80%;"></div>
+                    </div>
+                  </li>
+                  
 
             <li class="skills-item">
 
@@ -690,6 +803,22 @@
               </div>
 
             </li>
+            
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Lesson Plan Development</h5>
+                <data value="90">80%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 80%;"></div>
+              </div>
+
+            </li>
+
+
+            
 
           </ul>
 
@@ -720,15 +849,19 @@
             </li>
 
             <li class="filter-item">
-              <button data-filter-btn>Web design</button>
+              <button data-filter-btn>Learning Design</button>
             </li>
 
             <li class="filter-item">
-              <button data-filter-btn>Applications</button>
+              <button data-filter-btn>Graphic Design</button>
             </li>
 
             <li class="filter-item">
               <button data-filter-btn>Web development</button>
+            </li>
+
+            <li class="select-item">
+              <button data-select-item>Applications</button>
             </li>
 
           </ul>
@@ -752,15 +885,19 @@
               </li>
 
               <li class="select-item">
-                <button data-select-item>Web design</button>
+                <button data-select-item>Learning Design</button>
               </li>
 
               <li class="select-item">
-                <button data-select-item>Applications</button>
+                <button data-select-item>Graphic Design</button>
               </li>
 
               <li class="select-item">
                 <button data-select-item>Web development</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-item>Applications</button>
               </li>
 
             </ul>
@@ -770,17 +907,17 @@
           <ul class="project-list">
 
             <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
+              <a href="https://capturing.netlify.app">
 
                 <figure class="project-img">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project-1.jpg" alt="finance" loading="lazy">
+                  <img src="./assets/images/work-b-01.jpg" alt="Capturing Photobooth" loading="lazy">
                 </figure>
 
-                <h3 class="project-title">Finance</h3>
+                <h3 class="project-title">Capturing Photobooth</h3>
 
                 <p class="project-category">Web development</p>
 
@@ -788,17 +925,17 @@
             </li>
 
             <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
+              <a href="https://script.google.com/macros/s/AKfycbwAsp_MoswKM26Ca1wxCEBMx7dGCtrod7MK1jNxfWg6tHOMVfrYevT2aRcYnrpnlv5vGA/exec">
 
                 <figure class="project-img">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project-2.png" alt="orizon" loading="lazy">
+                  <img src="./assets/images/work-b-02.jpg" alt="orizon" loading="lazy">
                 </figure>
 
-                <h3 class="project-title">Orizon</h3>
+                <h3 class="project-title">Certificate PDF Maker</h3>
 
                 <p class="project-category">Web development</p>
 
@@ -806,89 +943,17 @@
             </li>
 
             <li class="project-item  active" data-filter-item data-category="web design">
-              <a href="#">
+              <a href="https://script.google.com/macros/s/AKfycby_WR4LCES-O-heLrfGT0oNvInRsMptRUWPeds_3752geB6e_fztxTfbTAHQUT2ewM6/exec">
 
                 <figure class="project-img">
                   <div class="project-item-icon-box">
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project-3.jpg" alt="fundo" loading="lazy">
+                  <img src="./assets/images/work-b-03.jpg" alt="fundo" loading="lazy">
                 </figure>
 
-                <h3 class="project-title">Fundo</h3>
-
-                <p class="project-category">Web design</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-4.png" alt="brawlhalla" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Brawlhalla</h3>
-
-                <p class="project-category">Applications</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web design">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-5.png" alt="dsm." loading="lazy">
-                </figure>
-
-                <h3 class="project-title">DSM.</h3>
-
-                <p class="project-category">Web design</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web design">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-6.png" alt="metaspark" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">MetaSpark</h3>
-
-                <p class="project-category">Web design</p>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./assets/images/project-7.png" alt="summary" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Summary</h3>
+                <h3 class="project-title">Score System for School</h3>
 
                 <p class="project-category">Web development</p>
 
@@ -903,17 +968,17 @@
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project-8.jpg" alt="task manager" loading="lazy">
+                  <img src="./assets/images/work-b-04.jpg" alt="brawlhalla" loading="lazy">
                 </figure>
 
-                <h3 class="project-title">Task Manager</h3>
+                <h3 class="project-title">ประกวดออกแบบเสื้อคณะครุศาสตร์</h3>
 
-                <p class="project-category">Applications</p>
+                <p class="project-category">Graphic Design</p>
 
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="web development">
+            <li class="project-item  active" data-filter-item data-category="graphic design">
               <a href="#">
 
                 <figure class="project-img">
@@ -921,12 +986,84 @@
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project-9.png" alt="arrival" loading="lazy">
+                  <img src="./assets/images/work-b-05.jpg" alt="dsm." loading="lazy">
                 </figure>
 
-                <h3 class="project-title">Arrival</h3>
+                <h3 class="project-title">ออกแบบแบรนด์</h3>
 
-                <p class="project-category">Web development</p>
+                <p class="project-category">Graphic Design</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="applications">
+              <a href="https://x.thunkable.com/projects/64f9ea8e66b9fc24f58cc73e/preview/08909467-1711-4375-b92d-d215083879fc">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/work-b-06.jpg" alt="metaspark" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Mini Game ส่งเสริมความรู้</h3>
+
+                <p class="project-category">Applications</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="graphic design">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/work-b-07.jpg" alt="summary" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">ใบความรู้</h3>
+
+                <p class="project-category">Graphic Design</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="applications">
+              <a href="https://kanbanapps.glide.page">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/work-b-08.jpg" alt="task manager" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Glide App และคู่มือการสร้างแอปพลิเคชัน</h3>
+
+                <p class="project-category">Graphic Design</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="graphic design">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/work-b-10.jpg" alt="arrival" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">ออกแบบ Poster และป้ายชื่อ</h3>
+
+                <p class="project-category">Graphic Design</p>
 
               </a>
             </li>
@@ -1146,7 +1283,7 @@
         <section class="mapbox" data-mapbox>
           <figure>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199666.5651251294!2d-121.58334177520186!3d38.56165006739519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ac672b28397f9%3A0x921f6aaa74197fdb!2sSacramento%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1647608789441!5m2!1sen!2sbd"
+              src="#"
               width="400" height="300" loading="lazy"></iframe>
           </figure>
         </section>

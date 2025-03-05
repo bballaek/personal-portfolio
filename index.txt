@@ -9,16 +9,16 @@ Web developer
 Show Contacts
 
 Email
-richard@example.com
+bigbollvol@gmail.com
 
 Phone
-+1 (213) 352-2795
++66 933963175
 
 Birthday
-June 23, 1982
+17 aug 2002
 
 Location
-Sacramento, California, USA
+Thai
 
 # navbar
 

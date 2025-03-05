@@ -23,6 +23,9 @@
 
   /* gradient */
 
+
+
+
   --bg-gradient-onyx: linear-gradient(
     to bottom right, 
     hsl(240, 1%, 25%) 3%, 
@@ -74,7 +77,7 @@
    */
 
   /* font-family */
-  --ff-poppins: 'Poppins', sans-serif;
+  --ff-poppins: "Noto Sans Thai", sans-serif;
 
   /* font-size */
   --fs-1: 24px;
@@ -241,8 +244,9 @@ article.active {
 
 .article-title {
   position: relative;
-  padding-bottom: 7px;
+  padding-bottom: 5px;
 }
+
 
 .article-title::after {
   content: "";
@@ -296,6 +300,7 @@ article.active {
 
 
 
+
 /*-----------------------------------*\
   #MAIN
 \*-----------------------------------*/
@@ -333,15 +338,16 @@ main {
 
 .avatar-box {
   background: var(--bg-gradient-onyx);
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .info-content .name {
   color: var(--white-2);
-  font-size: var(--fs-3);
+  font-size: var(--fs-2);
   font-weight: var(--fw-500);
   letter-spacing: -0.25px;
   margin-bottom: 10px;
+  
 }
 
 .info-content .title {
@@ -352,7 +358,63 @@ main {
   width: max-content;
   padding: 3px 12px;
   border-radius: 8px;
+  
 }
+
+.info-content .resume-btn {
+  color: var(--white-1);
+  background: var(--onyx);
+  font-size: var(--fs-8);
+  font-weight: var(--fw-300);
+  width: max-content;
+  padding: 3px 12px;
+  border-radius: 8px;
+  
+}
+
+.resume-btn {
+  background-color: var(--orange-yellow-crayola);
+  color: var(--smoky-black);
+  font-size: 12px;
+  padding: 3px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 8px; /* เพิ่มระยะห่างจากด้านบน */
+}
+
+.resume-btn:hover {
+  background-color: var(--vegas-gold);
+}
+
+.resume-btn {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+  background: none;
+  color: var(--light-gray);
+  font-size: 12px; /* ปรับขนาด font เป็นปกติ (5px อาจเล็กเกินไป) */
+  border-radius: 8px;
+  
+}
+
+/* 🔹 ซ่อนปุ่มในมือถือ (ต่ำกว่า 768px) */
+@media (max-width: 1024px) {
+  .resume-btn {
+    display: none;
+  }
+}
+
+.resume-btn i {
+  margin-right: 4px;
+}
+
+.resume-btn:hover {
+  background: var(--orange-yellow-crayola);
+  color: var(--smoky-black);
+}
+
 
 .info_more-btn {
   position: absolute;
@@ -450,6 +512,7 @@ main {
 
 
 
+
 /*-----------------------------------*\
   #NAVBAR
 \*-----------------------------------*/
@@ -488,6 +551,88 @@ main {
 .navbar-link.active { color: var(--orange-yellow-crayola); }
 
 
+/*-----------------------------------*\
+  #back totop
+\*-----------------------------------*/
+#back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: var(--orange-yellow-crayola); /* ใช้สีจากธีม */
+  color: var(--smoky-black);
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  display: none; /* ซ่อนไว้ตอนแรก */
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-3);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+}
+
+#back-to-top:hover {
+  background: var(--vegas-gold);
+  transform: scale(1.1);
+}
+
+/*-----------------------------------*\
+  #anima about
+\*-----------------------------------*/
+.navba-item {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  height: 40px; /* ปรับให้พอดีกับขนาดตัวอักษร */
+}
+
+.navba-link {
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.text-container {
+  position: relative;
+  display: inline-block;
+  height: 40px; /* ปรับขนาดให้พอดีกับข้อความ */
+  overflow: hidden;
+  width: 200px; /* ปรับให้เหมาะกับขนาดข้อความ */
+  text-align: center;
+  text-align: left;
+}
+
+.text {
+  position: absolute;
+  left: 0; /* กำหนดให้ข้อความเริ่มจากซ้าย */
+  width: 100%;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 10px;
+}
+
+
+.text.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 
 
 
@@ -502,6 +647,7 @@ main {
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
   line-height: 1.6;
+  
 }
 
 .about-text p { margin-bottom: 15px; }
@@ -589,7 +735,7 @@ main {
   left: 0;
   transform: translate(15px, -25px);
   background: var(--bg-gradient-onyx);
-  border-radius: 14px;
+  border-radius: 10px;
   box-shadow: var(--shadow-1);
 }
 
@@ -669,6 +815,19 @@ main {
   z-index: 2;
 }
 
+
+.testimonials, .clients{
+  display: none;
+}
+
+.blog {
+  display: none;
+}
+
+
+
+
+
 .modal-container.active .testimonials-modal {
   transform: scale(1);
   opacity: 1;
@@ -698,7 +857,7 @@ main {
 .modal-avatar-box {
   background: var(--bg-gradient-onyx);
   width: max-content;
-  border-radius: 14px;
+  border-radius: 10px;
   margin-bottom: 15px;
   box-shadow: var(--shadow-2);
 }
@@ -789,11 +948,22 @@ main {
 
 .timeline-item:not(:last-child) { margin-bottom: 20px; }
 
+
+
 .timeline-item-title {
   font-size: var(--fs-6);
   line-height: 1.3;
   margin-bottom: 7px;
 }
+.timeline-title {
+  font-size: var(--fs-10);
+  line-height: 1.3;
+  margin-bottom: 7px;
+  color: rgb(170, 170, 219);
+  font-style: italic; /* ทำให้ตัวเอียง */
+  font-weight: 300;   /* ทำให้ตัวบาง (Light) */
+}
+
 
 .timeline-list span {
   color: var(--vegas-gold);
@@ -848,10 +1018,23 @@ main {
   margin-bottom: 8px;
 }
 
+.custom-list {
+  list-style: none; /* ซ่อนเลขเริ่มต้น */
+  padding-left: 0; /* เอาชิดซ้าย */
+  color: var(--light-gray);
+}
+
+.custom-list li::before {
+  content: "- "; /* ใส่ไอคอนที่ต้องการ */
+  font-size: 18px; /* ปรับขนาดไอคอน */
+  margin-right: 8px; /* เพิ่มระยะห่าง */
+  color: var(--light-gray);
+}
 .skill .title-wrapper data {
   color: var(--light-gray);
   font-size: var(--fs-7);
   font-weight: var(--fw-300);
+  color: var(--light-gray);
 }
 
 .skill-progress-bg {
@@ -1298,6 +1481,22 @@ textarea.form-input::-webkit-resizer { display: none; }
     font-weight: var(--fw-600);
     padding-bottom: 15px;
   }
+  
+  .resume-btn {
+    background-color: var(--orange-yellow-crayola);
+    color: var(--smoky-black);
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .resume-btn:hover {
+    background-color: var(--vegas-gold);
+  }
+  
 
   .article-title::after {
     width: 40px;
@@ -1337,13 +1536,14 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .sidebar-info { gap: 25px; }
 
-  .avatar-box { border-radius: 30px; }
+  .avatar-box { border-radius: 10px; }
 
   .avatar-box img { width: 120px; }
 
   .info-content .name { margin-bottom: 15px; }
 
   .info-content .title { padding: 5px 18px; }
+  .info-content .resume-btn { padding: 5px 20px; }
 
   .info_more-btn {
     top: -30px;
@@ -1459,7 +1659,7 @@ textarea.form-input::-webkit-resizer { display: none; }
   }
 
   .modal-avatar-box {
-    border-radius: 18px;
+    border-radius: 10px;
     margin-bottom: 0;
   }
 
@@ -1591,7 +1791,7 @@ textarea.form-input::-webkit-resizer { display: none; }
     max-width: 680px;
   }
 
-  .modal-avatar-box img { width: 80px; }
+  .modal-avatar-box img { width: 100px; }
 
 
 
@@ -1843,6 +2043,8 @@ textarea.form-input::-webkit-resizer { display: none; }
   }
 
   .info-content .title { margin: auto; }
+  .info-content .resume-btn { margin: auto; }
+  
 
   .info_more-btn { display: none; }
 

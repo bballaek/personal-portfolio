@@ -157,3 +157,45 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+// ดึงปุ่มจาก HTML
+const backToTopButton = document.getElementById("back-to-top");
+
+// ตรวจจับการเลื่อนหน้าจอ
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) { // ถ้าเลื่อนลงมากกว่า 300px ให้แสดงปุ่ม
+    backToTopButton.style.display = "flex";
+  } else {
+    backToTopButton.style.display = "none";
+  }
+});
+
+// เมื่อกดปุ่ม ให้เลื่อนขึ้นไปด้านบน
+backToTopButton.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth" // ทำให้เลื่อนขึ้นอย่างนุ่มนวล
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const texts = document.querySelectorAll(".text");
+  let index = 0;
+
+  setInterval(() => {
+      texts[index].classList.remove("active");
+      index = (index + 1) % texts.length;
+      texts[index].classList.add("active");
+  }, 3000);
+});
+
+document.getElementById("resume-btn").addEventListener("click", function(event) {
+  event.preventDefault();
+  window.open("/Resume_Aekkarat_Wongchalee_English_Ver.pdf", "_blank");
+});
+
+
+
+
+
+
