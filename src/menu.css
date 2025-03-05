@@ -1,0 +1,126 @@
+
+.home-container, .photobooth-container, .photo-booth {
+  padding-top: 100px;  /* ปรับขนาดตามความสูงของ Navbar */
+}
+
+
+.nav {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+  }
+  
+  .menu {
+    background-color: #E6E5E4;
+    padding: 0.75rem 0.30rem;
+    border-radius: 9999px;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  
+  .menu li {
+    list-style: none;
+  }
+  
+  .menu li a {
+    padding: 0.5rem 1.5rem;
+    border-radius: 9999px;
+    color: #2C3D37;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .menu li a:hover,
+  .menu li a.active { /* เพิ่ม active state */
+    background-color: #765A3F;
+    color: #ffff;
+  }
+  
+  /* ส่วน mobile menu ยังคงเหมือนเดิม */
+  .menu-icon {
+    display: none;
+  }
+  .menu-icon {
+    position: absolute;  /* ทำให้ตำแหน่งเป็นอิสระ */
+    top: 50%;  /* จัดให้อยู่ตรงกลางแนวตั้งของ navbar */
+    right: 30px; /* เพิ่มระยะห่างจากขอบขวา */
+    transform: translateY(-50%); /* ปรับให้กึ่งกลางพอดี */
+    cursor: pointer;
+    z-index: 1100; /* ให้ปุ่มอยู่ด้านหน้า */
+    padding: 10px; /* เพิ่มพื้นที่คลิก */
+  }
+  .menu-icon {
+    margin-right: 20px; /* เพิ่ม margin ด้านขวา */
+    top: 50%;  /* จัดให้อยู่ตรงกลางแนวตั้งของ navbar */
+  }
+  
+  
+  
+  
+  #menu-toggle {
+    display: none;
+  }
+
+  
+  
+  @media (max-width: 768px) {
+    .nav {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1000;
+    }
+    .home-container, .photobooth-container, .photo-booth {
+      padding-top: 40px;  /* ปรับขนาดตามความสูงของ Navbar */
+    }
+  
+    .menu-icon {
+      display: block;
+      cursor: pointer;
+      background-color: rgb(243, 244, 246);
+      padding: 1rem;
+      border-radius: 9999px;
+    }
+  
+    .menu-icon span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: rgb(31, 41, 55);
+      margin: 5px 0;
+      transition: all 0.3s ease;
+    }
+  
+    .menu {
+      position: absolute;
+      top: calc(100% + 0.5rem);
+      right: 0;
+      flex-direction: column;
+      gap: 0.5rem;
+      display: none;
+      min-width: 200px;
+    }
+  
+    .menu.open {
+      display: flex;
+    }
+  
+    .menu li {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .menu li a {
+      display: block;
+      padding: 0.75rem 1.5rem;
+    }
+  
+    #menu-toggle:checked ~ .menu-icon span:first-child {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+  
+    #menu-toggle:checked ~ .menu-icon span:last-child {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+  }
