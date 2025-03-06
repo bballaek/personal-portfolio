@@ -1,9 +1,5 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { Instagram } from "lucide-react";
-import { MdOutlineFileDownload } from "react-icons/md";
-import { GrPowerReset } from "react-icons/gr";
-import { BsCopy } from "react-icons/bs";
 import axios from "axios";
 import { createFFmpeg, fetchFile } from '@ffmpeg/ffmpeg';
 
@@ -289,8 +285,6 @@ const frames = {
     }
   };
   
-
-
 const PhotoPreview = ({ capturedImages }) => {
   const stripCanvasRef = useRef(null);
   const navigate = useNavigate();
@@ -300,96 +294,83 @@ const PhotoPreview = ({ capturedImages }) => {
   const [status, setStatus] = useState(""); 
   const [isCreatingVideo, setIsCreatingVideo] = useState(false);
   const [copySuccess, setCopySuccess] = useState(false); // ✅ เพิ่ม state สำหรับคัดลอกลิงก์สำเร็จ
+  const [customText, setCustomText] = useState("")
+  const [error, setError] = useState(""); // ✅ เก็บข้อความแจ้งเตือน
   
-  const generatePhotoStrip = useCallback(() => {
-    const canvas = stripCanvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-
-    const imgWidth = 400;  
-    const imgHeight = 300; 
-    const borderSize = 40;  
-    const photoSpacing = 20;  
-    const textHeight = 50;  
-    const totalHeight = (imgHeight * 4) + (photoSpacing * 3) + (borderSize * 2) + textHeight;
-
-    canvas.width = imgWidth + borderSize * 2;
-    canvas.height = totalHeight;
-
-    ctx.fillStyle = stripColor;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    let imagesLoaded = 0;
-    capturedImages.forEach((image, index) => {
-      const img = new Image();
-      img.src = image;
-      img.onload = () => {
-        const yOffset = borderSize + (imgHeight + photoSpacing) * index;
-
-        const imageRatio = img.width / img.height;
-        const targetRatio = imgWidth / imgHeight;
-
-        let sourceWidth = img.width;
-        let sourceHeight = img.height;
-        let sourceX = 0;
-        let sourceY = 0;
-
-        if (imageRatio > targetRatio) {
-            sourceWidth = sourceHeight * targetRatio;
-            sourceX = (img.width - sourceWidth) / 2;
-        } else {
-            sourceHeight = sourceWidth / targetRatio;
-            sourceY = (img.height - sourceHeight) / 2;
-        }
-
-        ctx.drawImage(
-            img,
-            sourceX, sourceY, sourceWidth, sourceHeight, 
-            borderSize, yOffset, imgWidth, imgHeight      
-        );
-
-        if (frames[selectedFrame] && typeof frames[selectedFrame].draw === 'function') {
-          frames[selectedFrame].draw(
-              ctx,
-              borderSize,
-              yOffset,
-              imgWidth,
-              imgHeight
+    const generatePhotoStrip = useCallback(() => {
+      const canvas = stripCanvasRef.current;
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+  
+      const imgWidth = 400;
+      const imgHeight = 300;
+      const borderSize = 40;
+      const photoSpacing = 20;
+      const textHeight = 50;
+      const totalHeight = (imgHeight * 4) + (photoSpacing * 3) + (borderSize * 2) + textHeight;
+  
+      canvas.width = imgWidth + borderSize * 2;
+      canvas.height = totalHeight;
+  
+      ctx.fillStyle = stripColor;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+      let imagesLoaded = 0;
+      capturedImages.forEach((image, index) => {
+        const img = new Image();
+        img.src = image;
+        img.onload = () => {
+          const yOffset = borderSize + (imgHeight + photoSpacing) * index;
+  
+          const imageRatio = img.width / img.height;
+          const targetRatio = imgWidth / imgHeight;
+  
+          let sourceWidth = img.width;
+          let sourceHeight = img.height;
+          let sourceX = 0;
+          let sourceY = 0;
+  
+          if (imageRatio > targetRatio) {
+              sourceWidth = sourceHeight * targetRatio;
+              sourceX = (img.width - sourceWidth) / 2;
+          } else {
+              sourceHeight = sourceWidth / targetRatio;
+              sourceY = (img.height - sourceHeight) / 2;
+          }
+  
+          ctx.drawImage(
+              img,
+              sourceX, sourceY, sourceWidth, sourceHeight, 
+              borderSize, yOffset, imgWidth, imgHeight      
           );
-        }
-        
-        imagesLoaded++;
-        if (imagesLoaded === capturedImages.length) {
-          const now = new Date();
-          const timestamp = now.toLocaleDateString('en-US', {
-            day: '2-digit',
-            month: '2-digit',
-            year: 'numeric'
-          }); // ❌ เอาการตั้งค่าเวลาออก
-        
-          ctx.fillStyle = "#000000";
-          ctx.font = "bold 25px Phudu"; 
+  
+          if (frames[selectedFrame] && typeof frames[selectedFrame].draw === 'function') {
+            frames[selectedFrame].draw(
+                ctx,
+                borderSize,
+                yOffset,
+                imgWidth,
+                imgHeight
+            );
+          }
           
-          ctx.textAlign = "center";
-          
-          // เปลี่ยนให้แสดงแค่ข้อความ "CAPTURING 2025"
-          ctx.fillText("🧸 TEDDY Open HOUSE 🧸"+ timestamp, canvas.width / 2, totalHeight - borderSize * 1.2);
-        
-          ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
-          ctx.font = "15px Kanit";
-          ctx.textAlign = "center";
-          ctx.fillText(
-            "© Capturing 2025",
-            canvas.width / 2,
-            totalHeight - borderSize * 0.6
-          );
-        }
-        
-
-        
-      };
-    });
-  }, [capturedImages, stripColor, selectedFrame]);
+          imagesLoaded++;
+          if (imagesLoaded === capturedImages.length) {
+            ctx.fillStyle = "#000000";
+            ctx.font = "bold 25px Kanit"; 
+            ctx.textAlign = "center";
+  
+            // ✅ ใช้ข้อความจากผู้ใช้ ถ้าไม่มีให้ใช้ "booth"
+            const displayText = customText.trim().substring(0, 10) || "Capturing Photobooth";
+            ctx.fillText(displayText, canvas.width / 2, totalHeight - borderSize * 1.2);
+  
+            ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
+            ctx.font = "15px Phudu";
+            ctx.fillText("© Capturing 2025", canvas.width / 2, totalHeight - borderSize * 0.6);
+          }
+        };
+      });
+    }, [capturedImages, stripColor, selectedFrame, customText]); // ✅
 
   const createVideoFromPhotos = async () => {
     if (capturedImages.length !== 4) {
@@ -494,6 +475,18 @@ const PhotoPreview = ({ capturedImages }) => {
     link.href = stripCanvasRef.current.toDataURL("image/png");
     link.click();
     
+  };
+
+  const handleTextChange = (e) => {
+    const inputText = e.target.value;
+  
+    if (inputText.length > 10) {
+      setError("❗กรุณากรอกไม่เกิน 15 ตัวอักษร❗");
+    } else {
+      setError(""); // ล้างแจ้งเตือนถ้าถูกต้อง
+    }
+  
+    setCustomText(inputText.slice(0, 15)); // ป้องกันการเกิน 10 ตัว
   };
 
   // 📌 เพิ่มฟังก์ชันสำหรับแชร์ไปยัง Instagram Story
@@ -688,28 +681,45 @@ const PhotoPreview = ({ capturedImages }) => {
       <canvas ref={stripCanvasRef} className="photo-strip" />
       
       <div className="control-section">
-        <div className="action-buttons">
+      <a className="hatt" >#Capturing Photobooth 20023</a> 
+     
+      {/* ✅ ส่วนให้ผู้ใช้พิมพ์ข้อความ */}
+      <div className="text-input-section">
+        <input
+          type="text"
+          //maxLength={10} 
+          placeholder="ใส่ข้อความที่นี่..."
+          value={customText}
+          onChange={handleTextChange} // ✅ ใช้ฟังก์ชันจัดการข้อความ
+          className="custom-text-input"
+        />
+      </div>
+      {error && <p className="error-message">{error}</p>} {/* ✅ แสดงข้อความแจ้งเตือน */}
+
+      {/* ✅ ปุ่มแชร์ / ดาวน์โหลด */}
+      <div className="action-buttons">
         <button onClick={copyPageLink} className="ig-sharess">
-            <BsCopy size={20} style={{ marginRight: '0px' }} />
+            <i className="fa-regular fa-copy"></i>
             {copySuccess ? " คัดลอกแล้ว!" : ""}
         </button>
+
         <button onClick={downloadPhotoStrip} className="ig-sharess">
-            <MdOutlineFileDownload size={20} style={{ marginRight: '0px' }} />
+            <i className="fa-solid fa-download"></i>
         </button>
         
-        <button onClick={shareToInstagramStory} className="ig-sharess">
-            <Instagram size={20} style={{ marginRight: '0px' }} /> For IG Story
+        <button onClick={shareToInstagramStory} className="it-sharess">
+            <i className="fa-brands fa-instagram"></i> For IG Story
         </button>
-
-        </div>
-
-       
-         <button onClick={() => navigate("/photobooth")} className="play-again-btn">
-            <GrPowerReset size={20} style={{ marginRight: '5px' }} /> PLAY AGAIN
-        </button>
-        
-        </div>
       </div>
+
+      {/* ✅ ปุ่มย้อนกลับ */}
+      <button onClick={() => navigate("/photobooth")} className="play-again-btn">
+          <i className="fa-solid fa-rotate-right"></i> PLAY AGAIN
+      </button>
+
+</div>
+</div>
+
    
   );
 };

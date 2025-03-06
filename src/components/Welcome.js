@@ -24,12 +24,9 @@ const Welcome = () => {
       
 
       <div className="button-container">
-      
+      <button button className="start-btn" onClick={() => navigate("/photobooth")}>START</button>
         <button className="howto-btn" onClick={() => navigate("/howto")}>How to</button>
         <button className="privacypolicy-btn" onClick={() => navigate("/privacy-policy")}>Privacy Policy</button>
-        <button button className="start-btn" onClick={() => navigate("/photobooth")}>START</button>
-
-
 </div>
 
     </div>

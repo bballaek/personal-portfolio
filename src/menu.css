@@ -66,6 +66,7 @@
   
   @media (max-width: 768px) {
     .nav {
+      display: none; /* ซ่อนเมนูเริ่มต้น */
       position: fixed;
       top: 1rem;
       right: 1rem;
@@ -73,6 +74,9 @@
     }
     .home-container, .photobooth-container, .photo-booth {
       padding-top: 40px;  /* ปรับขนาดตามความสูงของ Navbar */
+    }
+    .menu.open {
+      display: flex; /* แสดงเมนูเมื่อเปิด */
     }
   
     .menu-icon {

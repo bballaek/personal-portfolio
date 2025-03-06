@@ -32,9 +32,9 @@
   height: 100vh;
   background: radial-gradient(
     circle at center,
-    rgba(245, 225, 172, 0.7),  /* #F5E1AC */
-    rgba(244, 239, 238, 0.9),  /* #F4EFEE */
-    rgb(255, 255, 255)        /* สีขาว */
+    rgba(255, 153, 178, 0.5) 20%,
+    rgba(255, 240, 245, 0.9) 40%,
+    rgba(255, 250, 250, 1) 70%
   ); 
   display: flex;
   justify-content: center;
@@ -63,9 +63,9 @@
   height: 100vh;
   background: radial-gradient(
     circle at center,
-    rgba(245, 225, 172, 0.7) 50%,  /* #F5E1AC */
-    rgba(244, 239, 238, 0.9) 40%,  /* #F4EFEE */
-    rgb(255, 255, 255) 70%         /* สีขาว */
+    rgba(255, 153, 178, 0.5) 20%,
+    rgba(255, 240, 245, 0.9) 40%,
+    rgba(255, 250, 250, 1) 70%)
   ); 
   justify-content: center;
   align-items: center;
@@ -106,11 +106,13 @@
   font-family: 'Arial', sans-serif;
   box-sizing: border-box;
   margin-bottom: 15px;
+   border-radius: 50px !important;
 }
 
 .contact-form textarea {
   height: 120px;
   resize: none;
+  
 }
 
 .contact-form button {
@@ -155,9 +157,9 @@
   height: 100vh;
   background: radial-gradient(
     circle at center,
-    rgba(245, 225, 172, 0.7),  /* #F5E1AC */
-    rgba(244, 239, 238, 0.9),  /* #F4EFEE */
-    #EBDBC1       /* สีขาว */
+    rgba(255, 153, 178, 0.5) 20%,
+    rgba(255, 240, 245, 0.9) 40%,
+    rgba(255, 250, 250, 1) 70%)
   ); 
   display: flex;
   justify-content: center;
@@ -197,7 +199,7 @@
 
 /* ปรับขนาดภาพ */
 .photobooth-st {
-  width: 50px; /* ขนาดที่ต้องการ */
+  width: 20px; /* ขนาดที่ต้องการ */
   ;
 }
 
@@ -244,7 +246,7 @@
 
 /* ปรับขนาดภาพ */
 .photobooth-strip {
-  width: 100px; /* ขนาดที่ต้องการ */
+  width: 50px; /* ขนาดที่ต้องการ */
   transition: transform 0.3s ease-in-out;
 }
 
@@ -252,9 +254,9 @@
 .welcome-title {
   font-size: 3rem;
   font-weight: bold;
-  margin-top: 50px; /* เพิ่มระยะห่างระหว่างรูปกับข้อความ */
+  margin-top: 10px; /* เพิ่มระยะห่างระหว่างรูปกับข้อความ */
   position: relative;
-  margin-top: 150px; 
+  margin-top: 120px; 
   z-index: 3; /* ให้แน่ใจว่าข้อความอยู่ด้านบน */
 }
 /* เอฟเฟกต์ hover */
@@ -298,10 +300,10 @@ button:hover {
 }
 
 .home-container h4 {
-  color: #2C3D37;
+  color: #1d6f53;
 }
 .welcome-title h1 {
-  color: #2C3D37;
+  color: #4ea687;
 }
 
 .home-container-h1 {
@@ -431,6 +433,8 @@ button {
     rgba(255, 250, 250, 1) 70%); 
 }
 
+
+
 .photo-preview canvas {
   max-width: 320px;
   width: 100%;
@@ -477,7 +481,7 @@ button {
 
 .action-buttons {
   display: flex;
-  gap: 5px;
+  gap: 0px;
   justify-content: center;
   margin: 20px 0;
 }
@@ -544,9 +548,9 @@ button {
   padding: 0 20px;
   background: radial-gradient(
     circle at center,
-    rgba(245, 225, 172, 0.7),  /* #F5E1AC */
-    rgba(244, 239, 238, 0.9),  /* #F4EFEE */
-    rgb(255, 255, 255)        /* สีขาว */
+    rgba(255, 153, 178, 0.5) 20%,
+    rgba(255, 240, 245, 0.9) 40%,
+    rgba(255, 250, 250, 1) 70%       /* สีขาว */
   ); 
   display: flex;
 }
@@ -559,7 +563,7 @@ button {
   margin-bottom: 80px;
   font-size: 3rem;
   color: black;
-  margin-bottom: 1rem;
+  margin-bottom: -10px;
 }
 
 .welcome-container p {
@@ -757,15 +761,12 @@ button:active {
 }
 /* Photobooth Strip */
 .photobooth-strip {
-  width: 150px; 
+  width: 130px; /* ขนาดรูป */
   max-width: 300px; 
   height: auto; 
   display: block;
   margin: 10px auto; 
 }
-
-
-
 
 /* ปุ่มฟิลเตอร์ */
 .filters {
@@ -780,15 +781,6 @@ button:active {
     display: none;
   }
 }
-
-
-
-
-
-
-
-
-
 
 
 .filters button {
@@ -864,7 +856,7 @@ footer a:hover {
 
 
 .start-btn {
-  background-color: #fb667c; /* สีชมพู (Hot Pink) */
+  background-color: #B45339; /* สีชมพู (Hot Pink) */
   color: rgb(0, 0, 0); /* สีตัวอักษร */
   font-size: 18px; /* ขนาดตัวอักษร */
   padding: 5px 20px; /* ขนาดของปุ่ม */
@@ -935,11 +927,13 @@ footer a:hover {
   font-size: 16px;
   border: none;
   padding: 10px 20px;
-  margin: 10px;
+  margin: 5px;
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
 }
+
+
 
 .action-buttons button:hover {
   background-color: #45a049;
@@ -985,7 +979,7 @@ footer a:hover {
   font-size: 20px;
   font-weight: bold;
   border: none;
-  padding: 15px 30px;
+  padding: 15px 20px;
   margin-top: 20px;
   border-radius: 50px;
   cursor: pointer;
@@ -1004,10 +998,146 @@ footer a:hover {
   align-items: center;
   justify-content: center;
   width: fit-content; /* ป้องกันไม่ให้ปุ่มขยายเกินไป */
-  padding: 10px 80px; /* ปรับ padding ให้เหมาะสม */
+  padding: 12px 85px; /* ลด padding ด้านข้าง */
   margin: 0 auto; /* จัดให้ปุ่มอยู่กึ่งกลาง */
 }
+.text-input-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  border-radius: 50px !important;
+  justify-content: center; /* จัดให้อยู่ตรงกลางแนวนอน */
+  align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
 
+}
+
+.custom-text-input {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+  border-radius: 50px !important;
+  justify-content: center; /* จัดให้อยู่ตรงกลางแนวนอน */
+  align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+  text-align: center; /* จัดข้อความตรงกลาง */
+  font-family: "kanit", sans-serif;
+}
+
+.error-message {
+  color: rgb(180, 5, 5);
+  font-size: 14px;
+  margin-top: 5px;
+  text-align: center;
+  font-family: "kanit", sans-serif;
+}
+
+.hatt {
+  display: block;
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+  margin-top: 0px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-family: "kanit", sans-serif;
+}
+
+
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0px;
+  margin-top: 10px;
+}
+
+.ig-sharess {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.ig-sharess:hover {
+  background-color: #ddd;
+}
+
+  /* Photo Strip Preview */
+  .photo-preview {
+    margin-top: 50px; /* เพิ่มระยะห่างระหว่างรูปกับข้อความ */
+ }
+ .photo-preview h3 {
+  margin-bottom: 10px; /* เพิ่มระยะห่างระหว่างรูปกับข้อความ */
+  margin-top: -20px; /* เพิ่มระยะห่างระหว่างรูปกับข้อความ */
+  
+}
+.photo-preview h2::after {
+  content: "";
+  display: block;
+  width: 200px; /* ความยาวของเส้น */
+  height: 2px; /* ความหนาของเส้น */
+  background-color: #ccc; /* สีของเส้น */
+  margin: 8px auto; /* ทำให้เส้นอยู่กึ่งกลาง */
+}
+/* ปุ่มพื้นฐาน */
+.start-button {
+  margin-top: 20px !important;
+  background-color: #65544f; /* สีชมพู */
+  color: white;
+  font-size: 22px;
+  padding: 12px 10px; /* ปรับ padding ให้ปุ่มยาวขึ้น */
+  border-radius: 50px !important;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: block;
+  width: 300px; /* ปรับขนาดปุ่มตามต้องการ */
+  margin: 0 auto; /* จัดปุ่มให้อยู่กึ่งกลาง */
+}
+
+.home-container h4 {
+  font-size: 1.2rem;
+  font-weight: 350;
+  margin-top: 0px; /* เพิ่มระยะห่างระหว่างรูปกับข้อความ */
+  margin-bottom: 0px; 
+  font-family: "Roboto Mono", monospace;
+}
+
+
+/* ✅ ปรับสไตล์ของ SVG */
+.photoautomat-svg {
+  width: 500px; /* ปรับขนาดได้ */
+}
+
+.color-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+
+
+
+
+/* ✅ แสดงเป็นวงกลมเมื่ออยู่บนมือถือ */
+@media (max-width: 768px) {
+  .color-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 0; /* ✅ ซ่อนข้อความ */
+  }
+}
+
+
+/*-----------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------*/
 
 
 /* Mobile Responsiveness */
@@ -1080,8 +1210,25 @@ footer a:hover {
 }
 
 
+
+
 /* 📌 สไตล์สำหรับปุ่ม IG Story */
 .ig-sharess {
+  height: 50px;
+  border-radius: 50px !important;
+  background-color: white;
+  color: black;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  position: relative;
+}
+.it-sharess {
   height: 50px;
   border-radius: 50px !important;
   background-color: white;
@@ -1134,22 +1281,56 @@ footer a:hover {
   align-items: center;
   justify-content: center;
   width: fit-content; /* ป้องกันไม่ให้ปุ่มขยายเกินไป */
-  padding: 10px 80px; /* ปรับ padding ให้เหมาะสม */
+  padding: 10px 90px; /* ปรับ padding ให้เหมาะสม */
+  margin: 0 auto; /* จัดให้ปุ่มอยู่กึ่งกลาง */
+}
+.it-share, .play-again-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content; /* ป้องกันไม่ให้ปุ่มขยายเกินไป */
+  padding: 10px 90px; /* ปรับ padding ให้เหมาะสม */
   margin: 0 auto; /* จัดให้ปุ่มอยู่กึ่งกลาง */
 }
 
+.it-sharess {
+  position: relative; /* ✅ ให้เป็นจุดอ้างอิงของ ::after */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+  background: white;
+  border-radius: 25px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  cursor: pointer;
+}
 
-  
-  
-  
+/* ✅ จุดแดงกระพริบเป็นแดง-เหลือง */
+.it-sharess::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  right: 5px;
+  width: 15px;
+  height: 15px;
+  background-color: red;
+  border-radius: 50%;
+  box-shadow: 0 0 5px red;
+  animation: blink 1s infinite alternate ease-in-out;
+}
+
+@keyframes blink {
+  0% { background-color: red; box-shadow: 0 0 5px red; }
+  50% { background-color: yellow; box-shadow: 0 0 5px yellow; }
+  100% { background-color: red; box-shadow: 0 0 5px red; }
+}
 
 
 
-
-
-
- 
-
+.ig-sharess {
+  gap: 5px; /* ลดช่องว่างระหว่างไอคอนกับข้อความ */
+}
 
 
   .contact-form {
@@ -1159,17 +1340,17 @@ footer a:hover {
 
   
   .home-container h1 {
-
-    margin-top: 50px; /* เพิ่มระยะห่างระหว่างรูปกับข้อความ */
-    margin-bottom: -50px; 
+    margin-top: 0px; /* เพิ่มระยะห่างระหว่างรูปกับข้อความ */
+    margin-bottom: -30px; 
+    
   }
     
   .home-container h4 {
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 350;
-
-    margin-top: 50px; /* เพิ่มระยะห่างระหว่างรูปกับข้อความ */
-    margin-bottom: -10px; 
+    margin-top: 40px; /* เพิ่มระยะห่างระหว่างรูปกับข้อความ */
+    margin-bottom: 40px; 
+    font-family: "Roboto Mono", monospace;
   }
     /* Camera Container */
   .camera-container {
@@ -1195,22 +1376,25 @@ footer a:hover {
 .welcome-container {
   margin-top: 50px;
 }
+.welcome-container h1{
+  margin-top: 150px;
+}
 
 .welcome-container button {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 /* คอนเทนเนอร์ของภาพ */
 .photobooth-container {
 
-  margin-top: 100px; /* เพิ่มระยะห่างระหว่างรูปกับข้อความ */
+  margin-top: 20px; /* เพิ่มระยะห่างระหว่างรูปกับข้อความ */
   margin-bottom: 50px; /* เพิ่มระยะห่างระหว่างรูปกับข้อความ */
   
 }
 
 /* ปรับขนาดภาพ */
 .photobooth-strip {
-  width: 130px; /* ขนาดที่ต้องการ */
+  width: 120px; /* ขนาดที่ต้องการ */
   transition: transform 0.3s ease-in-out;
   margin-top: 50px; /* เพิ่มระยะห่างระหว่างรูปกับข้อความ */
 }
@@ -1219,7 +1403,7 @@ footer a:hover {
 }
 
 .photo-booth h1 {
-  margin-top: 80px; /* ปรับระยะห่างด้านบน */
+  margin-top: 0px; /* ปรับระยะห่างด้านบน */
 }
 .photo-booth h3 {
   margin-top: -10px; /* ปรับระยะห่างด้านบน */
@@ -1239,6 +1423,106 @@ footer a:hover {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
 }
+
+/* ปุ่มพื้นฐาน */
+.start-button {
+  margin-top: 20px !important;
+  background-color: #65544f; /* สีชมพู */
+  color: white;
+  font-size: 22px;
+  padding: 12px 10px; /* ปรับ padding ให้ปุ่มยาวขึ้น */
+  border-radius: 50px !important;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: block;
+  width: 300px; /* ปรับขนาดปุ่มตามต้องการ */
+  margin: 0 auto; /* จัดปุ่มให้อยู่กึ่งกลาง */
+}
+
+/* เอฟเฟกต์เมื่อ hover */
+.start-button:hover {
+  background-color: #db2777; /* เปลี่ยนเป็นสีชมพูเข้ม */
+}
+
+/* ปุ่มให้เต็มจอ */
+.full-width-button {
+  width: 100%; /* ทำให้ปุ่มเต็มพื้นที่ของ parent */
+}
+
+.start-btn {
+  margin-top: px !important;
+  background-color: #65544f; /* สีชมพู */
+  color: white;
+  font-size: 22px;
+  padding: 12px 10px; /* ปรับ padding ให้ปุ่มยาวขึ้น */
+  border-radius: 50px !important;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: block;
+  width: 300px; /* ปรับขนาดปุ่มตามต้องการ */
+  margin: 0 auto; /* จัดปุ่มให้อยู่กึ่งกลาง */
+}
+
+
+
+
+
+
+@keyframes swing1 {
+  0%, 100% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+}
+
+@keyframes swing2 {
+  0%, 100% { transform: rotate(5deg); }
+  50% { transform: rotate(-5deg); }
+}
+
+@keyframes blink {
+  0% { fill: #e7e5d5; }
+  50% { fill: #ffe967; }
+  100% { fill: #e7e5d5; }
+}
+
+#light {
+  animation: blink 2s infinite;
+}
+
+
+
+/* ✅ ทำให้ light กระพริบ */
+.light-animation {
+  animation: blinkLight 1s infinite alternate;
+  display: inline-block;
+}
+
+@keyframes blinkLight {
+  0% {
+    background-color: #e7e5d5;
+  }
+  100% {
+    background-color: #ffe966;
+  }
+}
+
+/* ✅ ปรับสไตล์ของ SVG */
+.photoautomat-svg {
+  width: 300px; /* ปรับขนาดได้ */
+}
+
+.light-svg {
+  width: 100px;
+}
+
+#light {
+  fill: inherit !important;
+}
+
+
+
+
 
 
 
