@@ -189,10 +189,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 3000);
 });
 
-document.getElementById("resume-btn").addEventListener("click", function(event) {
-  event.preventDefault();
-  window.open("/Resume_Aekkarat_Wongchalee_English_Ver.pdf", "_blank");
-});
 
 
 
