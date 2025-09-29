@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>นโยบายความเป็นส่วนตัว - Autofill</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #FAFAFA;
+            color: #333333;
+            font-size: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            background-color: #FFFFFF;
+            border-bottom: 1px solid #E5E5E5;
+            padding: 32px 0;
+            margin-bottom: 40px;
+        }
+
+        .header-content {
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 32px;
+            font-weight: 600;
+            color: #007AFF;
+            margin: 0 0 8px 0;
+        }
+
+        .last-updated {
+            color: #666666;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .main-wrapper {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .table-of-contents {
+            position: sticky;
+            top: 20px;
+            width: 280px;
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            flex-shrink: 0;
+        }
+
+        .toc-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #222222;
+            margin: 0 0 16px 0;
+        }
+
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc-item {
+            margin-bottom: 8px;
+        }
+
+        .toc-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #666666;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            font-size: 14px;
+        }
+
+        .toc-link:hover {
+            background-color: #F0F8FF;
+            color: #007AFF;
+        }
+
+        .toc-icon {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+        }
+
+        .content {
+            flex: 1;
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .section h2 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 24px;
+            font-weight: 600;
+            color: #007AFF;
+            margin: 0 0 16px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #F0F8FF;
+        }
+
+        .section-icon {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        .section p {
+            margin: 0 0 16px 0;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .section ul {
+            margin: 0 0 16px 0;
+            padding-left: 24px;
+        }
+
+        .section li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            font-weight: 700;
+            color: #007AFF;
+        }
+
+        .footer {
+            background-color: #FFFFFF;
+            border-top: 1px solid #E5E5E5;
+            padding: 32px 0;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .footer-content {
+            color: #666666;
+            font-size: 14px;
+        }
+
+        .footer-content a {
+            color: #007AFF;
+            text-decoration: none;
+        }
+
+        .footer-content a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .main-wrapper {
+                flex-direction: column;
+            }
+
+            .table-of-contents {
+                position: static;
+                width: 100%;
+                margin-bottom: 24px;
+            }
+
+            .content {
+                padding: 24px;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+
+            .section h2 {
+                font-size: 20px;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1>นโยบายความเป็นส่วนตัว</h1>
+                <p class="last-updated">อัปเดตล่าสุด: 15 มกราคม 2567</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="main-wrapper">
+            <nav class="table-of-contents">
+                <h3 class="toc-title">สารบัญ</h3>
+                <ul class="toc-list">
+                    <li class="toc-item">
+                        <a href="#scope" class="toc-link">
+                            <svg class="toc-icon" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                            ขอบเขตการทำงาน
+                        </a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#no-data" class="toc-link">
+                            <svg class="toc-icon" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z"/>
+                            </svg>
+                            ข้อมูลที่เราไม่เก็บ
+                        </a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#permissions" class="toc-link">
+                            <svg class="toc-icon" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                            </svg>
+                            สิทธิ์ (Permissions)
+                        </a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#local-storage" class="toc-link">
+                            <svg class="toc-icon" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/>
+                            </svg>
+                            การจัดเก็บข้อมูลในเครื่อง
+                        </a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#third-party" class="toc-link">
+                            <svg class="toc-icon" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-1 16H9V9h9v12z"/>
+                            </svg>
+                            การแชร์ข้อมูลกับบุคคลที่สาม
+                        </a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#analytics" class="toc-link">
+                            <svg class="toc-icon" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                            </svg>
+                            การวิเคราะห์และติดตาม
+                        </a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#security" class="toc-link">
+                            <svg class="toc-icon" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10V11.5C15.4,11.5 16,12.4 16,13V16C16,17.4 15.4,18 14.8,18H9.2C8.6,18 8,17.4 8,16V13C8,12.4 8.6,11.5 9.2,11.5V10C9.2,8.6 10.6,7 12,7M12,8.2C11.2,8.2 10.5,8.7 10.5,10V11.5H13.5V10C13.5,8.7 12.8,8.2 12,8.2Z"/>
+                            </svg>
+                            ความปลอดภัยของข้อมูล
+                        </a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#user-rights" class="toc-link">
+                            <svg class="toc-icon" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+                            สิทธิของผู้ใช้
+                        </a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#updates" class="toc-link">
+                            <svg class="toc-icon" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M21 10.12h-6.78l2.74-2.82c-2.73-2.7-7.15-2.8-9.88-.1-2.73 2.71-2.73 7.08 0 9.79 2.73 2.71 7.15 2.71 9.88 0C18.32 15.65 19 14.08 19 12.1h2c0 1.98-.88 4.55-2.64 6.29-3.51 3.48-9.21 3.48-12.72 0-3.5-3.47-3.53-9.11-.02-12.58 3.51-3.47 9.14-3.47 12.65 0L21 3v7.12zM12.5 8v4.25l3.5 2.08-.72 1.21L11 13V8h1.5z"/>
+                            </svg>
+                            การอัปเดตนโยบาย
+                        </a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#children" class="toc-link">
+                            <svg class="toc-icon" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 7.5V9M15 10.5V19L13.5 17.5V14.5L10.5 17.5V22H9V16.5L12 13.5V10.5L7 13V22H5.5V11.5L12 8.5C12.5 8.16 13.13 8 13.75 8H15V9"/>
+                            </svg>
+                            เด็กและผู้เยาว์
+                        </a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#legal-compliance" class="toc-link">
+                            <svg class="toc-icon" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                            </svg>
+                            กฎหมายที่เกี่ยวข้อง
+                        </a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#contact" class="toc-link">
+                            <svg class="toc-icon" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            </svg>
+                            ติดต่อเรา
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <main class="content">
+                <section id="scope" class="section">
+                    <h2>
+                        <svg class="section-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                        1. ขอบเขตการทำงาน
+                    </h2>
+                    <p>Autofill เป็นส่วนขยายของเบราว์เซอร์ที่ช่วยเติมข้อมูลในฟอร์มต่างๆ โดยอัตโนมัติ เพื่อประหยัดเวลาและเพิ่มความสะดวกในการใช้งานอินเทอร์เน็ต</p>
+                    <p><span class="highlight">เราให้ความสำคัญกับความเป็นส่วนตัวของผู้ใช้เป็นอย่างสูง</span> และได้ออกแบบส่วนขยายนี้ให้ทำงานโดยไม่เก็บข้อมูลส่วนบุคคลใดๆ ของผู้ใช้</p>
+                </section>
+
+                <section id="no-data" class="section">
+                    <h2>
+                        <svg class="section-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46C3.08 8.3 1.78 10.02 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z"/>
+                        </svg>
+                        2. ข้อมูลที่เราไม่เก็บ
+                    </h2>
+                    <p><span class="highlight">เราไม่เก็บข้อมูลส่วนบุคคลใดๆ ของผู้ใช้</span> รวมถึง:</p>
+                    <ul>
+                        <li>ข้อมูลที่คุณกรอกในฟอร์มต่างๆ</li>
+                        <li>ประวัติการเข้าชมเว็บไซต์</li>
+                        <li>ข้อมูลส่วนตัว เช่น ชื่อ ที่อยู่ อีเมล หมายเลขโทรศัพท์</li>
+                        <li>ข้อมูลการเงิน เช่น หมายเลขบัตรเครดิต</li>
+                        <li>รหัสผ่านหรือข้อมูลการเข้าสู่ระบบ</li>
+                    </ul>
+                </section>
+
+                <section id="permissions" class="section">
+                    <h2>
+                        <svg class="section-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                        </svg>
+                        3. สิทธิ์ (Permissions)
+                    </h2>
+                    <p>ส่วนขยาย Autofill ต้องการสิทธิ์ดังต่อไปนี้เพื่อการทำงาน:</p>
+                    <ul>
+                        <li><strong>activeTab:</strong> เพื่อเข้าถึงแท็บที่กำลังใช้งานอยู่</li>
+                        <li><strong>storage:</strong> เพื่อจัดเก็บการตั้งค่าของส่วนขยายในเครื่องของผู้ใช้</li>
+                        <li><strong>scripting:</strong> เพื่อทำงานกับฟอร์มในหน้าเว็บ</li>
+                    </ul>
+                    <p>สิทธิ์เหล่านี้ใช้เพื่อการทำงานของส่วนขยายเท่านั้น <span class="highlight">ไม่ได้ใช้เพื่อเก็บรวบรวมข้อมูลส่วนบุคคล</span></p>
+                </section>
+
+                <section id="local-storage" class="section">
+                    <h2>
+                        <svg class="section-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/>
+                        </svg>
+                        4. การจัดเก็บข้อมูลในเครื่อง
+                    </h2>
+                    <p>ส่วนขยายจัดเก็บเฉพาะการตั้งค่าการทำงานในเครื่องของผู้ใช้เท่านั้น ได้แก่:</p>
+                    <ul>
+                        <li>การตั้งค่าการเปิด/ปิดใช้งานส่วนขยาย</li>
+                        <li>การตั้งค่าการทำงานของฟีเจอร์ต่างๆ</li>
+                    </ul>
+                    <p><span class="highlight">ข้อมูลเหล่านี้จัดเก็บในเครื่องของผู้ใช้เท่านั้น</span> และไม่ถูกส่งไปยังเซิร์ฟเวอร์ภายนอกใดๆ</p>
+                </section>
+
+                <section id="third-party" class="section">
+                    <h2>
+                        <svg class="section-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-1 16H9V9h9v12z"/>
+                        </svg>
+                        5. การแชร์ข้อมูลกับบุคคลที่สาม
+                    </h2>
+                    <p><span class="highlight">เราไม่แชร์ข้อมูลใดๆ กับบุคคลที่สาม</span> เนื่องจากเราไม่เก็บข้อมูลส่วนบุคคลของผู้ใช้ตั้งแต่แรก</p>
+                    <p>ส่วนขยายทำงานแบบออฟไลน์และไม่มีการเชื่อมต่อกับเซิร์ฟเวอร์ภายนอก</p>
+                </section>
+
+                <section id="analytics" class="section">
+                    <h2>
+                        <svg class="section-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                        </svg>
+                        6. การวิเคราะห์และติดตาม
+                    </h2>
+                    <p><span class="highlight">เราไม่ใช้เครื่องมือวิเคราะห์หรือติดตามพฤติกรรมผู้ใช้ใดๆ</span></p>
+                    <p>ไม่มีการใช้ Google Analytics, Facebook Pixel หรือเครื่องมือติดตามอื่นๆ</p>
+                </section>
+
+                <section id="security" class="section">
+                    <h2>
+                        <svg class="section-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10V11.5C15.4,11.5 16,12.4 16,13V16C16,17.4 15.4,18 14.8,18H9.2C8.6,18 8,17.4 8,16V13C8,12.4 8.6,11.5 9.2,11.5V10C9.2,8.6 10.6,7 12,7M12,8.2C11.2,8.2 10.5,8.7 10.5,10V11.5H13.5V10C13.5,8.7 12.8,8.2 12,8.2Z"/>
+                        </svg>
+                        7. ความปลอดภัยของข้อมูล
+                    </h2>
+                    <p>แม้ว่าเราจะไม่เก็บข้อมูลส่วนบุคคล แต่เรายังคงให้ความสำคัญกับความปลอดภัย:</p>
+                    <ul>
+                        <li>ส่วนขยายทำงานในสภาพแวดล้อมที่ปลอดภัยของเบราว์เซอร์</li>
+                        <li>ไม่มีการเชื่อมต่อกับเซิร์ฟเวอร์ภายนอก</li>
+                        <li>โค้ดของส่วนขยายได้รับการตรวจสอบโดย Chrome Web Store</li>
+                    </ul>
+                </section>
+
+                <section id="user-rights" class="section">
+                    <h2>
+                        <svg class="section-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                        </svg>
+                        8. สิทธิของผู้ใช้
+                    </h2>
+                    <p>เนื่องจากเราไม่เก็บข้อมูลส่วนบุคคล ผู้ใช้จึงมีสิทธิ์ดังต่อไปนี้:</p>
+                    <ul>
+                        <li><strong>ถอนการติดตั้ง:</strong> สามารถถอนการติดตั้งส่วนขยายได้ตลอดเวลา</li>
+                        <li><strong>ปิดใช้งาน:</strong> สามารถปิดใช้งานส่วนขยายชั่วคราวได้</li>
+                        <li><strong>ลบข้อมูลการตั้งค่า:</strong> สามารถรีเซ็ตการตั้งค่าได้ในหน้าตั้งค่าของส่วนขยาย</li>
+                    </ul>
+                </section>
+
+                <section id="updates" class="section">
+                    <h2>
+                        <svg class="section-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M21 10.12h-6.78l2.74-2.82c-2.73-2.7-7.15-2.8-9.88-.1-2.73 2.71-2.73 7.08 0 9.79 2.73 2.71 7.15 2.71 9.88 0C18.32 15.65 19 14.08 19 12.1h2c0 1.98-.88 4.55-2.64 6.29-3.51 3.48-9.21 3.48-12.72 0-3.5-3.47-3.53-9.11-.02-12.58 3.51-3.47 9.14-3.47 12.65 0L21 3v7.12zM12.5 8v4.25l3.5 2.08-.72 1.21L11 13V8h1.5z"/>
+                        </svg>
+                        9. การอัปเดตนโยบาย
+                    </h2>
+                    <p>เราอาจปรับปรุงนโยบายความเป็นส่วนตัวนี้เป็นครั้งคราว การเปลี่ยนแปลงที่สำคัญจะแจ้งให้ทราบผ่าน:</p>
+                    <ul>
+                        <li>การอัปเดตหน้านี้พร้อมวันที่ใหม่</li>
+                        <li>การแจ้งเตือนในส่วนขยาย (หากจำเป็น)</li>
+                    </ul>
+                </section>
+
+                <section id="children" class="section">
+                    <h2>
+                        <svg class="section-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 7.5V9M15 10.5V19L13.5 17.5V14.5L10.5 17.5V22H9V16.5L12 13.5V10.5L7 13V22H5.5V11.5L12 8.5C12.5 8.16 13.13 8 13.75 8H15V9"/>
+                        </svg>
+                        10. เด็กและผู้เยาว์
+                    </h2>
+                    <p>ส่วนขยายนี้ไม่ได้ออกแบบมาเพื่อเด็กอายุต่ำกว่า 13 ปี โดยเฉพาะ</p>
+                    <p><span class="highlight">เราไม่เก็บข้อมูลส่วนบุคคลจากผู้ใช้ทุกวัย</span> รวมถึงเด็กและผู้เยาว์</p>
+                </section>
+
+                <section id="legal-compliance" class="section">
+                    <h2>
+                        <svg class="section-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                        </svg>
+                        11. กฎหมายคุ้มครองข้อมูลส่วนบุคคลและกฎหมายที่เกี่ยวข้อง
+                    </h2>
+                    <p>นโยบายความเป็นส่วนตัวนี้จัดทำขึ้นเพื่อให้สอดคล้องกับกฎหมายคุ้มครองข้อมูลส่วนบุคคลของประเทศไทย</p>
+                    
+                    <h3 style="font-size: 18px; font-weight: 600; color: #007AFF; margin: 24px 0 12px 0;">พระราชบัญญัติที่เกี่ยวข้อง</h3>
+                    
+                    <div style="background-color: #F8F9FA; border-left: 4px solid #007AFF; padding: 16px; margin: 16px 0; border-radius: 0 8px 8px 0;">
+                        <h4 style="margin: 0 0 8px 0; font-size: 16px; font-weight: 600; color: #222222;">พระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562</h4>
+                        <p style="margin: 0 0 8px 0; font-size: 14px; color: #555555;">มีผลใช้บังคับเมื่อวันที่ 28 พฤษภาคม 2562</p>
+                        <a href="https://www.mwit.ac.th/html/mwitDoc/PDPA/1-1_PDPA-2562.pdf" target="_blank" rel="noopener noreferrer" style="color: #007AFF; text-decoration: none; font-size: 14px; display: inline-flex; align-items: center; gap: 4px;">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/>
+                            </svg>
+                            ดาวน์โหลดฉบับภาษาไทย (PDF)
+                        </a>
+                    </div>
+
+                    <div style="background-color: #F8F9FA; border-left: 4px solid #007AFF; padding: 16px; margin: 16px 0; border-radius: 0 8px 8px 0;">
+                        <h4 style="margin: 0 0 8px 0; font-size: 16px; font-weight: 600; color: #222222;">Personal Data Protection Act, B.E. 2562 (2019)</h4>
+                        <p style="margin: 0 0 8px 0; font-size: 14px; color: #555555;">มีผลใช้บังคับเมื่อวันที่ 28 พฤษภาคม 2562</p>
+                        <a href="https://www.mwit.ac.th/html/mwitDoc/PDPA/1-2_PDPA-2019.pdf" target="_blank" rel="noopener noreferrer" style="color: #007AFF; text-decoration: none; font-size: 14px; display: inline-flex; align-items: center; gap: 4px;">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/>
+                            </svg>
+                            ดาวน์โหลดฉบับภาษาอังกฤษ (PDF)
+                        </a>
+                    </div>
+
+                    <p><span class="highlight">การปฏิบัติตามกฎหมาย:</span> แม้ว่าส่วนขยาย Autofill จะไม่เก็บข้อมูลส่วนบุคคลใดๆ แต่เรายังคงยึดมั่นในหลักการคุ้มครองข้อมูลส่วนบุคคลตามที่กำหนดไว้ในพระราชบัญญัติดังกล่าว เพื่อให้ผู้ใช้มั่นใจในความปลอดภัยและความเป็นส่วนตัวของข้อมูล</p>
+                </section>
+
+                <section id="contact" class="section">
+                    <h2>
+                        <svg class="section-icon" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                        12. ติดต่อเรา
+                    </h2>
+                    <p>หากมีคำถามเกี่ยวกับนโยบายความเป็นส่วนตัวนี้ สามารถติดต่อเราได้ที่:</p>
+                    <ul>
+                        <li><strong>อีเมล:</strong> bigbollvol@gmail.com</li>
+                        <li><strong>เว็บไซต์:</strong> https://bballaek.github.io/personal-portfolio/privacy-policy</li>
+                    </ul>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>© 2568 Autofill Extension. สงวนลิขสิทธิ์ทุกประการ | 
+                <a href="#contact">ติดต่อเรา</a> | 
+                <a href="bigbollvol@gmail.com">bigbollvol@gmail.com</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for table of contents links
+        document.querySelectorAll('.toc-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Highlight active section in table of contents
+        function updateActiveSection() {
+            const sections = document.querySelectorAll('.section');
+            const tocLinks = document.querySelectorAll('.toc-link');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 100 && rect.bottom >= 100) {
+                    currentSection = section.id;
+                }
+            });
+            
+            tocLinks.forEach(link => {
+                const href = link.getAttribute('href').substring(1);
+                if (href === currentSection) {
+                    link.style.backgroundColor = '#F0F8FF';
+                    link.style.color = '#007AFF';
+                } else {
+                    link.style.backgroundColor = '';
+                    link.style.color = '#666666';
+                }
+            });
+        }
+
+        // Update active section on scroll
+        window.addEventListener('scroll', updateActiveSection);
+        
+        // Initial call to set active section
+        updateActiveSection();
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'986bfacda497d034',t:'MTc1OTE1NDE0Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
